@@ -275,8 +275,8 @@ public class DefaultMessageStore implements MessageStore {
                             minCommitLogOffset,//
                             maxCLOffsetInConsumeQueue);
 
-                        DefaultMessageStore.this.commitLog.removeQueurFromTopicQueueTable(nextQT.getValue()
-                            .getTopic(), nextQT.getValue().getQueueId());
+                        DefaultMessageStore.this.commitLog.removeQueueFromTopicQueueTable(nextQT.getValue()
+                                .getTopic(), nextQT.getValue().getQueueId());
 
                         nextQT.getValue().destroy();
                         itQT.remove();
@@ -1850,7 +1850,7 @@ public class DefaultMessageStore implements MessageStore {
                         cq.getQueueId() //
                     );
 
-                    this.commitLog.removeQueurFromTopicQueueTable(cq.getTopic(), cq.getQueueId());
+                    this.commitLog.removeQueueFromTopicQueueTable(cq.getTopic(), cq.getQueueId());
                 }
                 it.remove();
 

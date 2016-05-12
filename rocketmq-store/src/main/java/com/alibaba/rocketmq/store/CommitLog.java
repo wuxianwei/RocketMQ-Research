@@ -1139,12 +1139,12 @@ public class CommitLog {
     }
 
 
-    public void removeQueurFromTopicQueueTable(final String topic, final int queueId) {
+    public void removeQueueFromTopicQueueTable(final String topic, final int queueId) {
         String key = topic + "-" + queueId;
         synchronized (this) {
             this.topicQueueTable.remove(key);
         }
 
-        log.info("removeQueurFromTopicQueueTable OK Topic: {} QueueId: {}", topic, queueId);
+        log.info("removeQueueFromTopicQueueTable OK Topic: {} QueueId: {}", topic, queueId);
     }
 }
