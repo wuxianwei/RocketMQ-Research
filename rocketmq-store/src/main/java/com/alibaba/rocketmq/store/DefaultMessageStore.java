@@ -643,7 +643,7 @@ public class DefaultMessageStore implements MessageStore {
             return logic.getMinOffsetInQuque();
         }
 
-        return -1;
+        return 0;
     }
 
 
