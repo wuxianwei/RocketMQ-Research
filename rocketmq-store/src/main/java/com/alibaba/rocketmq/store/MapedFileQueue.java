@@ -444,7 +444,7 @@ public class MapedFileQueue {
             long tmpTimeStamp = mapedFile.getStoreTimestamp();
             int offset = mapedFile.commit(flushLeastPages);
             long where = mapedFile.getFileFromOffset() + offset;
-            result = (where == this.committedWhere);
+            result = (where != this.committedWhere);
             this.committedWhere = where;
             if (0 == flushLeastPages) {
                 this.storeTimestamp = tmpTimeStamp;
