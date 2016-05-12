@@ -372,7 +372,7 @@ public class ConsumeQueue {
 
                         if (offsetPy >= phyMinOffset) {
                             this.minLogicOffset = result.getMapedFile().getFileFromOffset() + i;
-                            log.info("compute logics min offset: " + this.getMinOffsetInQuque() + ", topic: "
+                            log.info("compute logics min offset: " + this.getMinOffsetInQueue() + ", topic: "
                                     + this.topic + ", queueId: " + this.queueId);
                             break;
                         }
@@ -389,7 +389,7 @@ public class ConsumeQueue {
     }
 
 
-    public long getMinOffsetInQuque() {
+    public long getMinOffsetInQueue() {
         return this.minLogicOffset / CQStoreUnitSize;
     }
 
@@ -567,11 +567,11 @@ public class ConsumeQueue {
      * 获取当前队列中的消息总数
      */
     public long getMessageTotalInQueue() {
-        return this.getMaxOffsetInQuque() - this.getMinOffsetInQuque();
+        return this.getMaxOffsetInQueue() - this.getMinOffsetInQueue();
     }
 
 
-    public long getMaxOffsetInQuque() {
+    public long getMaxOffsetInQueue() {
         return this.mapedFileQueue.getMaxOffset() / CQStoreUnitSize;
     }
 }
